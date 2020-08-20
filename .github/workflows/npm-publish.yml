@@ -1,0 +1,29 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+
+name: Node.js Package
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  auto_release_npm_package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: |
+          npm ci
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          - git remote set-url origin git@gitlab.innotechx.com:$CI_PROJECT_PATH.git
+          - git checkout $CI_COMMIT_REF_NAME
+          - git reset --hard origin/$CI_COMMIT_REF_NAME
+          - SPACE_CHAR=" "
+          - npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]"
+          - git push --follow-tags origin $CI_COMMIT_REF_NAME
+          - npm publish

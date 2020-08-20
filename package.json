@@ -1,0 +1,28 @@
+{
+  "name": "@pawgame/game-library",
+  "version": "1.0.0",
+  "description": "Pure Game Library",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "clean": "del-cli lib",
+    "build": "npm run clean && npm run compile",
+    "compile": "tsc --outDir lib -d",
+    "test": "echo \"no test specified\"",
+    "lint": "eslint src/ --ext .js,.jsx,.ts,.tsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawgame/game-library.git"
+  },
+  "author": "daichangxin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pawgame/game-library/issues"
+  },
+  "homepage": "https://github.com/pawgame/game-library#readme"
+}
