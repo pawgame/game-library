@@ -20,6 +20,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout $CI_COMMIT_REF_NAME
+          npm ci
           npm run build
           SPACE_CHAR=" "
           npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]"
