@@ -1,6 +1,1 @@
-export type Event = {
-    type: string;
-    data: any;
-}
-
-export type EventHandler = (event?: Event) => any;
+export type EventHandler = (data?: any) => any;
