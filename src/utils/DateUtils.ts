@@ -18,6 +18,6 @@ const getOverDays = (from: number, to: number) => {
     return Math.round((to - from) / (24 * 3600 * 1000));
 };
 
-export const DayUtils = {
+export const DateUtils = {
     getOverDays,
 }
