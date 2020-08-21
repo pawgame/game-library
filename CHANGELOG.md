@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.2.0 (2020-08-21)
+
+
+### Features
+
+* nice readme ([4dff68a](https://github.com/pawgame/game-library/commit/4dff68aaa0271765184faf8864dec38eff3ab7d1))
+
 ### 1.1.2 (2020-08-21)
 
 
