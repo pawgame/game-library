@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.1.0 (2020-08-21)
+
+
+### Features
+
+* add EventDispatcher ([7b504de](https://github.com/pawgame/game-library/commit/7b504dec7d8ebe78d62537346ac15551d9b91e9b))
+
 ### 1.0.6 (2020-08-21)
 
 
