@@ -20,6 +20,9 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git checkout $CI_COMMIT_REF_NAME
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm config set scope "@pawgame"
+          npm config list
           npm ci
           npm run build
           SPACE_CHAR=" "
