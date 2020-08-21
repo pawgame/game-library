@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.1.2 (2020-08-21)
+
+
+### Bug Fixes
+
+* event handler callback error ([fb89bc6](https://github.com/pawgame/game-library/commit/fb89bc6e06d805fc8caaad07c8d7a7f3df632a81))
+
 ### 1.1.1 (2020-08-21)
 
 ## 1.1.0 (2020-08-21)
