@@ -20,7 +20,7 @@
     "url": "git+https://github.com/pawgame/game-library.git"
   },
   "author": "daichangxin",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pawgame/game-library/issues"
   },
