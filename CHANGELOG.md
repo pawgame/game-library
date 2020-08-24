@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.4.0 (2020-08-24)
+
+
+### Features
+
+* add LocalStorage封装 ([15247e5](https://github.com/pawgame/game-library/commit/15247e5e6b1ad5a20b3ef362878cec2574b3eaed))
+
 ## 1.3.0 (2020-08-21)
 
 
