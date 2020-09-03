@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2020-09-03)
+
+
+### Features
+
+* 设备尺寸计算，字符串格式化 ([c5f40c5](https://github.com/pawgame/game-library/commit/c5f40c55ddfc0d518426936dd980d6a7798f51b7))
+
 ## 1.4.0 (2020-08-24)
 
 
