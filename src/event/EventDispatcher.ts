@@ -1,33 +1,70 @@
-import {EventHandler} from "./EventDefines";
+import {EventData, EventHandler} from "./EventDefines";
+import {Handler} from "../utils/Handler";
 
 export class EventDispatcher {
-    private _eventDic: Record<string, EventHandler>[] = [];
+    private readonly _eventDic: Record<string, Handler[]>;
 
-    addListener(type: string, listener: EventHandler) {
-        let all = this._eventDic[type];
+    constructor() {
+        this._eventDic = {};
+    }
+
+    addListener(type: string, caller: any, listener: EventHandler) {
+        if (!type || listener == null || !caller) return;
+        let all: Handler[] = this._eventDic[type];
         if (!all) {
-            all = [listener];
-            this._eventDic[type] = all;
-        } else if (!all.includes(listener)) {
-            all.push(listener);
+            this._eventDic[type] = [Handler.create(caller, listener, null, false)];
+            return;
+        }
+        const alreadyHas = all.some(item => {
+            return item.compare(caller, listener);
+        })
+        if (!alreadyHas) {
+            all.push(Handler.create(caller, listener, null, false));
         }
     }
 
-    removeListener(type: string, listener: EventHandler) {
-        const all = this._eventDic[type];
-        if (!all || !all.length) return;
-        const i = all.indexOf(listener);
-        if (i === -1) return;
-        all.splice(i, 1);
+    addMultiListener(caller: any, interests: Record<string, EventHandler>) {
+        if (!interests || !caller) return;
+        Object.entries(interests).forEach(([type, listener]) => {
+            if (!type || !listener) return;
+            this.addListener(type, caller, listener);
+        });
     }
 
-    dispatch(type: string, data?: any) {
+    removeListener(type: string, caller: any, listener: EventHandler) {
+        if (!type || listener == null || !caller) return;
         const all = this._eventDic[type];
         if (!all || !all.length) return;
-        const copyAll = all.concat();
-        copyAll.forEach((item) => {
-            item(data);
+        return all.some((item, index) => {
+            if (item.compare(caller, listener)) {
+                all.splice(index, 1);
+                if (all.length == 0) {
+                    this._eventDic[type] = null;
+                    delete this._eventDic[type];
+                }
+                return true;
+            }
+            return false;
+        })
+    }
+
+    removeMultiListener(caller: any, interests: Record<string, EventHandler>) {
+        if (!interests || !caller) return;
+        Object.entries(interests).forEach(([type, listener]) => {
+            if (!type || !listener) return;
+            this.removeListener(type, caller, listener);
         });
-        copyAll.length = 0;
+    }
+
+    dispatch(event: EventData) {
+        if (!event) return;
+        let all = this._eventDic[event.type];
+        if (!all || !all.length) return;
+        all = all.concat();
+        while (all.length) {
+            all.shift().runWith(event);
+        }
+        all.length = 0;
+        all = null;
     }
 }
