@@ -18,3 +18,4 @@ export const dispatch = (type: string, data?: any) => {
     innerEventDispatcher.dispatch(evt);
     eventCache.push(evt);
 }
+export const coreEvent = innerEventDispatcher;
