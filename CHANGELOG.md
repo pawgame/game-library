@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.6.0 (2020-09-08)
+
+
+### Features
+
+* add 事件中心 ([6760793](https://github.com/pawgame/game-library/commit/67607935b0318ab71cd07180b9ba85e6c0e1672c))
+
 ## 1.5.0 (2020-09-03)
 
 
