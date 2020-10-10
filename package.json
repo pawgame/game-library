@@ -1,6 +1,6 @@
 {
   "name": "@pawgame/game-library",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Pure Game Library",
   "main": "lib/index.js",
   "module": "lib/index.js",
