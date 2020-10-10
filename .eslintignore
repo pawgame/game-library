@@ -1,0 +1,5 @@
+build/*
+src/plugins/*
+src/**/*.html
+scripts/
+**/*.d.ts

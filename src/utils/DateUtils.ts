@@ -1,4 +1,3 @@
-
 const tempDate = new Date();
 
 /**
@@ -10,14 +9,14 @@ const tempDate = new Date();
 const getOverDays = (from: number, to: number) => {
     tempDate.setTime(from * 1000);
     tempDate.setHours(0, 0, 0, 0);
-    from = tempDate.getTime();
+    const fromStamp = tempDate.getTime();
 
     tempDate.setTime(to * 1000);
     tempDate.setHours(0, 0, 0, 0);
-    to = tempDate.getTime();
-    return Math.round((to - from) / (24 * 3600 * 1000));
+    const toStamp = tempDate.getTime();
+    return Math.round((toStamp - fromStamp) / (24 * 3600 * 1000));
 };
 
 export const DateUtils = {
     getOverDays,
-}
+};

@@ -1,4 +1,4 @@
-import {ObjectPool} from "./ObjectPool";
+import { ObjectPool } from './ObjectPool';
 
 export class Handler {
     static create(caller: any, method: Function, args?: any[], once = true) {
@@ -27,9 +27,10 @@ export class Handler {
     }
 
     runWith(...appendArgs: any[]) {
-        let args = appendArgs ?
-            (this._args ? this._args.concat(appendArgs) : appendArgs) :
-            (this._args ? this._args.concat() : null);
+        // eslint-disable-next-line no-nested-ternary
+        const args = appendArgs
+            ? (this._args ? this._args.concat(appendArgs) : appendArgs)
+            : (this._args ? this._args.concat() : null);
         this._method.apply(this._caller, args);
         if (this._once) {
             this.recycle();

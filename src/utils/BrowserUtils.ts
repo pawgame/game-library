@@ -1,6 +1,4 @@
-const rem2px = (n: number, base = 750): number => {
-    return n * 100 * (document.documentElement.offsetWidth / base);
-};
+const rem2px = (n: number, base = 750) => n * 100 * (document.documentElement.offsetWidth / base);
 
 /**
  * 根据设备DPR，换算成逻辑像素
@@ -8,7 +6,7 @@ const rem2px = (n: number, base = 750): number => {
 const dpr2px = (size: number) => {
     const docFontSize = parseFloat(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
     return (size / 100) * docFontSize;
-}
+};
 
 const scrollTop = (top: number, smooth = false): void => {
     if (smooth && 'scrollBehavior' in document.documentElement.style) {
@@ -30,4 +28,5 @@ const scrollTop = (top: number, smooth = false): void => {
 export const BrowserUtils = {
     rem2px,
     scrollTop,
-}
+    dpr2px,
+};

@@ -14,4 +14,4 @@ const isPhone = (str: string) => {
 export const RegExpUtils = {
     isQQ,
     isPhone,
-}
+};

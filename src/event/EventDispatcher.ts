@@ -1,5 +1,5 @@
-import {EventData, EventHandler} from "./EventDefines";
-import {Handler} from "../utils/Handler";
+import { EventData, EventHandler } from './EventDefines';
+import { Handler } from '../utils/Handler';
 
 export class EventDispatcher {
     private readonly _eventDic: Record<string, Handler[]>;
@@ -10,14 +10,12 @@ export class EventDispatcher {
 
     addListener(type: string, caller: any, listener: EventHandler) {
         if (!type || listener == null || !caller) return;
-        let all: Handler[] = this._eventDic[type];
+        const all: Handler[] = this._eventDic[type];
         if (!all) {
             this._eventDic[type] = [Handler.create(caller, listener, null, false)];
             return;
         }
-        const alreadyHas = all.some(item => {
-            return item.compare(caller, listener);
-        })
+        const alreadyHas = all.some((item) => item.compare(caller, listener));
         if (!alreadyHas) {
             all.push(Handler.create(caller, listener, null, false));
         }
@@ -35,17 +33,17 @@ export class EventDispatcher {
         if (!type || listener == null || !caller) return;
         const all = this._eventDic[type];
         if (!all || !all.length) return;
-        return all.some((item, index) => {
+        all.some((item, index) => {
             if (item.compare(caller, listener)) {
                 all.splice(index, 1);
-                if (all.length == 0) {
+                if (all.length === 0) {
                     this._eventDic[type] = null;
                     delete this._eventDic[type];
                 }
                 return true;
             }
             return false;
-        })
+        });
     }
 
     removeMultiListener(caller: any, interests: Record<string, EventHandler>) {

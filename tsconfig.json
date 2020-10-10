@@ -2,7 +2,8 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "target": "es6",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
   },
   "include": ["src", "libs"]
 }

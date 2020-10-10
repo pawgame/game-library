@@ -1,10 +1,10 @@
-import {ObjectUtils} from "./ObjectUtils";
+import { ObjectUtils } from './ObjectUtils';
 
 type StorageDB = {
     getItem: (key: string) => string;
     setItem: (key: string, value: string) => void;
     removeItem: (key: string) => void;
-}
+};
 
 export class LocalStorage {
     static readonly defaultInst = new LocalStorage('$pawgame');
@@ -31,6 +31,7 @@ export class LocalStorage {
     /**
      * TODO ADD CallLater
      */
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     private invalidate(now?: boolean) {
         this._db.setItem(this.mainKey, JSON.stringify(this._data));
     }
@@ -40,9 +41,9 @@ export class LocalStorage {
     }
 
     setBool(key: string, v: boolean, now?: boolean) {
-        const num_v = v ? 1 : 0;
-        if (num_v === this._data[key]) return;
-        this._data[key] = num_v;
+        const numV = v ? 1 : 0;
+        if (numV === this._data[key]) return;
+        this._data[key] = numV;
         this.invalidate(now);
     }
 
@@ -51,7 +52,7 @@ export class LocalStorage {
     }
 
     setStr(key: string, value: string, now?: boolean) {
-        if (this._data[key] == value) return;
+        if (this._data[key] === value) return;
         this._data[key] = value;
         this.invalidate(now);
     }
@@ -61,9 +62,9 @@ export class LocalStorage {
     }
 
     setNum(key: string, value: number, now?: boolean) {
-        value = ObjectUtils.parseFloat(value);
-        if (this._data[key] == value) return;
-        this._data[key] = value;
+        const formatValue = ObjectUtils.parseFloat(value);
+        if (this._data[key] === formatValue) return;
+        this._data[key] = formatValue;
         this.invalidate(now);
     }
 
@@ -89,5 +90,4 @@ export class LocalStorage {
         this._data = {};
         this._db.removeItem(this.mainKey);
     }
-
 }
