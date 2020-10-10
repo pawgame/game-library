@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.7.0 (2020-10-10)
+
+
+### Features
+
+* add eslint & prettier ([6b6c618](https://github.com/pawgame/game-library/commit/6b6c61840b8cade8ff7de79a24f9a915235457d7))
+
 ## 1.6.0 (2020-09-08)
 
 
