@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.3 (2020-10-14)
+
+
+### Bug Fixes
+
+* caller can be undefined ([f593fbf](https://github.com/pawgame/game-library/commit/f593fbfea377da464a17fef3a8516ae7239b1c77))
+
 ### 1.7.2 (2020-10-12)
 
 ### 1.7.1 (2020-10-10)
