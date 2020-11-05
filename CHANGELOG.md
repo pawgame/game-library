@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.4 (2020-11-05)
+
+
+### Bug Fixes
+
+* 手机号支持16号段 ([f9b16ae](https://github.com/pawgame/game-library/commit/f9b16ae774772d666ed33b52cf48156e394a270e))
+
 ### 1.7.3 (2020-10-14)
 
 
