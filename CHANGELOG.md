@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.7.5 (2021-01-18)
+
+
+### Bug Fixes
+
+* toFixed error ([a21cfde](https://github.com/pawgame/game-library/commit/a21cfdedb20e39aaa14d42caad3066b080b28ab1))
+
 ### 1.7.4 (2020-11-05)
 
 
