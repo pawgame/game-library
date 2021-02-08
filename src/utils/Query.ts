@@ -1,15 +1,12 @@
-let isInit = false;
-const dic: { [key: string]: string } = {};
+import { initedValue } from './initedValue';
 
-const init = () => {
-    if (isInit) return;
-    isInit = true;
-
-    if (!window.location) return;
+const build = (): Record<string, string> => {
+    if (!window || !window.location) return {};
     let s = window.location.search;
-    if (!s) return;
+    if (!s) return {};
     s = s.split('?')[1];
     s = s.split('#')[0];
+    const dic: Record<string, string> = {};
 
     const arrS = s.split('&');
     let arrItem: string[];
@@ -19,24 +16,19 @@ const init = () => {
         const key = arrItem[0];
         dic[key] = arrItem.length > 1 ? arrItem[1] : key;
     });
+    return dic;
 };
+
+const initedQueryValue = initedValue(build);
 
 const get = (key: string) => {
-    if (!isInit) {
-        init();
-    }
+    const dic = initedQueryValue.get();
     return dic[key];
-};
-
-const getDic = () => {
-    if (!isInit) {
-        init();
-    }
-    return dic;
 };
 
 /** 浏览器地址参数管理 */
 export const Query = {
     get,
-    getDic,
+    getDic: initedQueryValue.get,
+    reBuild: initedQueryValue.reBuild,
 };

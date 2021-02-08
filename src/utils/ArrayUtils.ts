@@ -11,7 +11,21 @@ const sortRandom = <T>(arr: T[]) => {
     return arr;
 };
 
+const removeItems = (list: any[], ...items: any[]) => {
+    if (!items.length || !list.length) return;
+    for (let i = 0, len = list.length; i < len; i++) {
+        if (items.length > 0 && items.indexOf(list[i]) !== -1) {
+            list.splice(i, 1);
+            i -= 1;
+            len -= 1;
+        } else {
+            break;
+        }
+    }
+};
+
 export const ArrayUtils = {
     random,
     sortRandom,
+    removeItems,
 };

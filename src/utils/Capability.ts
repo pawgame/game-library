@@ -16,5 +16,5 @@ const checkWebPSupport = () => {
 
 export const Capability = {
     /** 检查是否支持webP */
-    getWebPSupport: initedValue(checkWebPSupport),
+    getWebPSupport: initedValue(checkWebPSupport).get,
 };
