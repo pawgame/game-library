@@ -1,5 +1,5 @@
 import { ObjectPool } from './ObjectPool';
-import { Method } from './types';
+import { Method } from '../types';
 
 export class Handler {
     static create(caller: unknown, method: Method, args?: unknown[], once = true) {

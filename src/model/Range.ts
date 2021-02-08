@@ -1,6 +1,6 @@
 import { Handler } from '../utils/Handler';
 import { ObjectUtils } from '../utils/ObjectUtils';
-import { Method } from '../utils/types';
+import { Method } from '../types';
 
 /** 数值范围模型 */
 export class Range {
