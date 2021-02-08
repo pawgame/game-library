@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.10.0 (2021-02-08)
+
+
+### Features
+
+* add Singleton ([d5fe49c](https://github.com/pawgame/game-library/commit/d5fe49c5a3228254ea1624ae5869fc8d06b72488))
+
 ## 1.9.0 (2021-02-08)
 
 
