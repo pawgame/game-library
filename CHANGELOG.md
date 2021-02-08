@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.11.0 (2021-02-08)
+
+
+### Features
+
+* change type.d.ts pos ([edeea61](https://github.com/pawgame/game-library/commit/edeea619486126fc47a4be09b051957d0adb962c))
+
 ## 1.10.0 (2021-02-08)
 
 
