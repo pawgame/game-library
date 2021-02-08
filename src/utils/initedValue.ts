@@ -1,7 +1,7 @@
 /**
  * cache and use inited value
  */
-export const initedValue = <T>(valueBuilder: () => T, caller?: any) => {
+export const initedValue = <T>(valueBuilder: () => T, caller?: unknown) => {
     let isInit = false;
     let value: T;
 

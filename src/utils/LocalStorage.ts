@@ -9,7 +9,7 @@ type StorageDB = {
 export class LocalStorage {
     static readonly defaultInst = new LocalStorage('$pawgame');
 
-    private _data: any;
+    private _data: Record<string, unknown>;
     readonly mainKey: string;
     private _db: StorageDB;
 
@@ -37,7 +37,7 @@ export class LocalStorage {
     }
 
     getBool(key: string) {
-        return ObjectUtils.parseInt(this._data[key]) === 1;
+        return ObjectUtils.toInt(this._data[key]) === 1;
     }
 
     setBool(key: string, v: boolean, now?: boolean) {
@@ -58,11 +58,11 @@ export class LocalStorage {
     }
 
     getNum(key: string) {
-        return ObjectUtils.parseFloat(this._data[key]);
+        return ObjectUtils.toFloat(this._data[key]);
     }
 
     setNum(key: string, value: number, now?: boolean) {
-        const formatValue = ObjectUtils.parseFloat(value);
+        const formatValue = ObjectUtils.toFloat(value);
         if (this._data[key] === formatValue) return;
         this._data[key] = formatValue;
         this.invalidate(now);
@@ -72,7 +72,7 @@ export class LocalStorage {
         return this._data[key];
     }
 
-    setObj(key: string, obj: any, now?: boolean) {
+    setObj(key: string, obj: unknown, now?: boolean) {
         this._data[key] = obj;
         if (!obj) {
             delete this._data[key];

@@ -1,6 +1,6 @@
 export type EventData = {
     type: string;
-    data?: any;
+    data?: unknown;
 };
 
-export type EventHandler = (data?: EventData) => any;
+export type EventHandler = (data?: EventData) => unknown;

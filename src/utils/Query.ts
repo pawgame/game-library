@@ -4,8 +4,8 @@ const build = (): Record<string, string> => {
     if (!window || !window.location) return {};
     let s = window.location.search;
     if (!s) return {};
-    s = s.split('?')[1];
-    s = s.split('#')[0];
+    [, s] = s.split('?');
+    [s] = s.split('#');
     const dic: Record<string, string> = {};
 
     const arrS = s.split('&');

@@ -1,5 +1,6 @@
 import { Handler } from '../utils/Handler';
 import { ObjectUtils } from '../utils/ObjectUtils';
+import { Method } from '../utils/types';
 
 /** 数值范围模型 */
 export class Range {
@@ -9,7 +10,7 @@ export class Range {
 
     private _changeHander: Handler;
 
-    onChange(caller: any, handler: Function, args?: any[], once?: boolean) {
+    onChange(caller: unknown, handler: Method, args?: unknown[], once?: boolean) {
         if (!this._changeHander) {
             this._changeHander = Handler.create(caller, handler, args, once);
         } else {
@@ -45,9 +46,9 @@ export class Range {
     }
 
     set min(v: number) {
-        v = ObjectUtils.parseFloat(v);
-        if (this._min === v) return;
-        this._min = v;
+        const fixedValue = ObjectUtils.toFloat(v);
+        if (this._min === fixedValue) return;
+        this._min = fixedValue;
         this.correct();
         this.doChange();
     }
@@ -57,9 +58,9 @@ export class Range {
     }
 
     set max(v: number) {
-        v = ObjectUtils.parseFloat(v);
-        if (this._max === v) return;
-        this._max = v;
+        const fixedValue = ObjectUtils.toFloat(v);
+        if (this._max === fixedValue) return;
+        this._max = fixedValue;
         this.correct();
         this.doChange();
     }
@@ -69,9 +70,9 @@ export class Range {
     }
 
     set value(v: number) {
-        v = ObjectUtils.parseFloat(v);
-        if (this._value === v) return;
-        this._value = v;
+        const fixedValue = ObjectUtils.toFloat(v);
+        if (this._value === fixedValue) return;
+        this._value = fixedValue;
         this.correct();
         this.doChange();
     }

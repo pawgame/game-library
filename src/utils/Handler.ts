@@ -1,20 +1,21 @@
 import { ObjectPool } from './ObjectPool';
+import { Method } from './types';
 
 export class Handler {
-    static create(caller: any, method: Function, args?: any[], once = true) {
+    static create(caller: unknown, method: Method, args?: unknown[], once = true) {
         return ObjectPool.get(Handler).setTo(caller, method, args, once);
     }
 
-    private static __globalID = 0;
+    private static _$globalID = 0;
 
     private _id: number;
-    private _method: Function;
-    private _caller: any;
-    private _args: any[];
+    private _method: Method;
+    private _caller: unknown;
+    private _args: unknown[];
     private _once: boolean;
 
-    setTo(caller: any, method: Function, args?: any[], once = true) {
-        this._id = ++Handler.__globalID;
+    setTo(caller: unknown, method: Method, args?: unknown[], once = true) {
+        this._id = Handler._$globalID++;
         this._method = method;
         this._caller = caller;
         this._args = args;
@@ -26,11 +27,15 @@ export class Handler {
         this.runWith();
     }
 
-    runWith(...appendArgs: any[]) {
+    runWith(...appendArgs: unknown[]) {
         // eslint-disable-next-line no-nested-ternary
         const args = appendArgs
-            ? (this._args ? this._args.concat(appendArgs) : appendArgs)
-            : (this._args ? this._args.concat() : null);
+            ? this._args
+                ? this._args.concat(appendArgs)
+                : appendArgs
+            : this._args
+            ? this._args.concat()
+            : null;
         this._method.apply(this._caller, args);
         if (this._once) {
             this.recycle();
@@ -54,7 +59,7 @@ export class Handler {
     /**
      * 比较两个Handler的函数体是否相同
      */
-    compare(caller: any, func: Function) {
+    compare(caller: unknown, func: Method) {
         return this._method === func && this._caller === caller;
     }
 

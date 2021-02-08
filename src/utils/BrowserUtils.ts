@@ -4,7 +4,9 @@ const rem2px = (n: number, base = 750) => n * 100 * (document.documentElement.of
  * 根据设备DPR，换算成逻辑像素
  */
 const dpr2px = (size: number) => {
-    const docFontSize = parseFloat(window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'));
+    const docFontSize = parseFloat(
+        window.getComputedStyle(document.documentElement, null).getPropertyValue('font-size'),
+    );
     return (size / 100) * docFontSize;
 };
 

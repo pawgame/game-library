@@ -4,26 +4,25 @@ export class BaseDB<T> {
     /** 主键 */
     protected _mainKey: string;
 
-    constructor(rawData: any[], mainKey: string) {
+    constructor(rawData: unknown[], mainKey: string) {
         this._mainKey = mainKey || 'id';
         this.decode(rawData);
     }
 
-    protected decode(data: T[]) {
-        if (!data || !data.length) return;
+    protected decode(rawData: unknown[]) {
+        if (!rawData || !rawData.length) return;
         this._dic = {};
         this._all = [];
 
-        const len = data.length;
-        for (let i = 0; i < len; i++) {
-            const vo: T = this.createVo(data[i]);
+        rawData.forEach((item) => {
+            const vo = this.createVo(item);
             this._all.push(vo);
             this._dic[vo[this._mainKey]] = vo;
-        }
+        });
     }
 
-    protected createVo(data: any): T {
-        return data;
+    protected createVo(data: unknown): T {
+        return data as T;
     }
 
     get(mainKey: number | string) {

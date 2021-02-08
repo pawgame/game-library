@@ -1,18 +1,18 @@
-const getorcreatePool = <T>(cls: { __pool?: T[] }) => {
+const getorcreatePool = <T>(cls: { _$pool?: T[] }) => {
     if (!cls) return null;
     let pool: T[];
-    if (Object.prototype.hasOwnProperty.call(cls, '__pool')) {
-        pool = cls.__pool;
+    if (Object.prototype.hasOwnProperty.call(cls, '_$pool')) {
+        pool = cls._$pool;
     } else {
         pool = [];
-        Object.defineProperty(cls, '__pool', {
+        Object.defineProperty(cls, '_$pool', {
             value: pool,
         });
     }
     return pool;
 };
 
-const get = <T>(Cls: { new(): T } & { __pool?: T[] }, params?: Record<string, any>): T => {
+const get = <T>(Cls: { new (): T } & { _$pool?: T[] }, params?: Record<string, unknown>): T => {
     const pool = getorcreatePool(Cls);
     const inst = pool.length ? pool.pop() : new Cls();
     if (params) {
@@ -24,7 +24,7 @@ const get = <T>(Cls: { new(): T } & { __pool?: T[] }, params?: Record<string, an
 };
 
 const recycle = <T>(inst: T) => {
-    const cls: { __pool?: T[] } = inst.constructor as any;
+    const cls: { _$pool?: T[] } = inst.constructor as unknown;
     if (cls) {
         const pool = getorcreatePool(cls);
         if (pool) {

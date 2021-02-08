@@ -1,36 +1,13 @@
 module.exports = {
-    extends: ['airbnb-typescript/base'],
+    extends: ['@shm-open/eslint-config-bundle'],
     parserOptions: {
         project: './tsconfig.json',
     },
-    env: {
-        browser: true,
-    },
     rules: {
-        '@typescript-eslint/lines-between-class-members': 'off',
-        '@typescript-eslint/indent': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/camelcase': 'off',
-        '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
-        'class-methods-use-this': 'off',
-        quotes: 'off',
-        'no-underscore-dangle': 'off',
-        'no-plusplus': 'off',
-        'import/no-cycle': 'off',
-        'no-mixed-operators': 'off',
-        'no-bitwise': 'off',
-        'prefer-destructuring': 'off',
-        // 'dot-notation': 'off',
-        'import/prefer-default-export': 'off',
-        'no-param-reassign': 'off',
-        // 'arrow-body-style': 'off',
-        // 'no-new': 'off',
-        // 'operator-linebreak': 'off',
-        // 'object-curly-newline': 'off',
-        // 'max-classes-per-file': 'off',
-        // 'no-case-declarations': 'off',
-        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off', // 启用不强制函数的返回定义
+        'no-underscore-dangle': 'off', // 启用局部变量使用下划线
+        'no-plusplus': 'off', // 启用++写法
+        'no-bitwise': 'off', // 启用位运算
     },
 };
 

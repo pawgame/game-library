@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 export interface ChainNode<T> {
     pre: ChainNode<T>;
     next: ChainNode<T>;
@@ -6,7 +7,7 @@ export interface ChainNode<T> {
 
 /** 单项链表 */
 export class Chain<T> {
-    private static _cache: ChainNode<any>[] = [];
+    private static _cache: ChainNode<unknown>[] = [];
 
     private _first: ChainNode<T>;
     private _last: ChainNode<T>;
@@ -21,7 +22,7 @@ export class Chain<T> {
         node.data = data;
         node.pre = null;
         node.next = null;
-        return node;
+        return node as ChainNode<T>;
     }
 
     private removeNode(node: ChainNode<T>) {
@@ -83,7 +84,7 @@ export class Chain<T> {
     /** 从链表首位删除并返回该数据 */
     shift() {
         if (!this._first) return null;
-        const data = this._first.data;
+        const { data } = this._first;
         const newFirst = this._first.next;
         this.removeNode(this._first);
 
@@ -98,7 +99,7 @@ export class Chain<T> {
     /** 从链表尾部删除并返回数据 */
     pop() {
         if (!this._last) return null;
-        const data = this._last.data;
+        const { data } = this._last;
         const newLast = this._last.pre;
         this.removeNode(this._last);
 
@@ -125,7 +126,7 @@ export class Chain<T> {
         return this._count;
     }
 
-    forEach(handler: (item: T) => any) {
+    forEach(handler: (item: T) => unknown) {
         let inst = this._first;
         while (inst) {
             handler(inst.data);

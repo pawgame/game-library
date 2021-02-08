@@ -11,7 +11,7 @@ const sortRandom = <T>(arr: T[]) => {
     return arr;
 };
 
-const removeItems = (list: any[], ...items: any[]) => {
+const removeItems = <T>(list: T[], ...items: T[]) => {
     if (!items.length || !list.length) return;
     for (let i = 0, len = list.length; i < len; i++) {
         if (items.length > 0 && items.indexOf(list[i]) !== -1) {

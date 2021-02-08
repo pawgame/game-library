@@ -2,13 +2,11 @@ import { initedValue } from './initedValue';
 
 const checkWebPSupport = () => {
     try {
-        const supportWebp = (window as any).supportWebp === false
-                ? false
-                : document
-                      .createElement('canvas')
-                      .toDataURL('image/webp')
-                      .indexOf('data:image/webp') === 0;
-        return supportWebp;
+        return (
+            window.supportWebp ??
+            document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') ===
+                0
+        );
     } catch (err) {
         return false;
     }

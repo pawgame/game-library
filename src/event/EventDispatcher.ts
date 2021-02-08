@@ -8,7 +8,7 @@ export class EventDispatcher {
         this._eventDic = {};
     }
 
-    addListener(type: string, caller: any, listener: EventHandler) {
+    addListener(type: string, caller: unknown, listener: EventHandler) {
         if (!type || listener == null) return;
         const all: Handler[] = this._eventDic[type];
         if (!all) {
@@ -21,7 +21,7 @@ export class EventDispatcher {
         }
     }
 
-    addMultiListener(caller: any, interests: Record<string, EventHandler>) {
+    addMultiListener(caller: unknown, interests: Record<string, EventHandler>) {
         if (!interests) return;
         Object.entries(interests).forEach(([type, listener]) => {
             if (!type || !listener) return;
@@ -29,7 +29,7 @@ export class EventDispatcher {
         });
     }
 
-    removeListener(type: string, caller: any, listener: EventHandler) {
+    removeListener(type: string, caller: unknown, listener: EventHandler) {
         if (!type || listener == null) return;
         const all = this._eventDic[type];
         if (!all || !all.length) return;
@@ -46,7 +46,7 @@ export class EventDispatcher {
         });
     }
 
-    removeMultiListener(caller: any, interests: Record<string, EventHandler>) {
+    removeMultiListener(caller: unknown, interests: Record<string, EventHandler>) {
         if (!interests) return;
         Object.entries(interests).forEach(([type, listener]) => {
             if (!type || !listener) return;

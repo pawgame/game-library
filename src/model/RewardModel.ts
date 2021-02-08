@@ -10,7 +10,11 @@ export type RewardVo = {
  * @param itemSplitSymbol 区分道具的间隔字符
  * @param keyvalueSplitSymbol 描述道具数量属性的间隔字符
  */
-export const decodeReward = (strRewards: string, itemSplitSymbol = ';', keyvalueSplitSymbol = ':') => {
+export const decodeReward = (
+    strRewards: string,
+    itemSplitSymbol = ';',
+    keyvalueSplitSymbol = ':',
+) => {
     if (typeof strRewards !== 'string') {
         return [];
     }
