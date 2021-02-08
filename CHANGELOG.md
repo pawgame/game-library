@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.8.0 (2021-02-08)
+
+
+### Features
+
+* add mathUtils ([e83b103](https://github.com/pawgame/game-library/commit/e83b10339eab16bb299c3e3b18d5c14692e493a8))
+
 ### 1.7.5 (2021-01-18)
 
 
