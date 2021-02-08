@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.9.0 (2021-02-08)
+
+
+### Features
+
+* add LocalStorage return type ([4dbc98c](https://github.com/pawgame/game-library/commit/4dbc98c9951d84c4fc3944d2b7ac82b87b931786))
+
 ### 1.8.1 (2021-02-08)
 
 ## 1.8.0 (2021-02-08)
