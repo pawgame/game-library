@@ -48,7 +48,7 @@ export class LocalStorage {
     }
 
     getStr(key: string) {
-        return this._data[key];
+        return `${this._data[key]}`;
     }
 
     setStr(key: string, value: string, now?: boolean) {
