@@ -23,3 +23,4 @@ export * from './utils/RegExpUtils';
 export * from './utils/Resize';
 export * from './utils/StringUtils';
 export * from './utils/MathUtils';
+export * from './utils/Singleton';

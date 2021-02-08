@@ -8,6 +8,7 @@ module.exports = {
         'no-underscore-dangle': 'off', // 启用局部变量使用下划线
         'no-plusplus': 'off', // 启用++写法
         'no-bitwise': 'off', // 启用位运算
+        'import/no-unused-modules': 'off',
     },
 };
 
