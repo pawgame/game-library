@@ -11,7 +11,7 @@ export * from './model/Range';
 export * from './model/RewardModel';
 
 export * from './utils/ArrayUtils';
-export * from './utils/BrowserUtils';
+export * from './utils/DomUtils';
 export * from './utils/Capability';
 export * from './utils/DateUtils';
 export * from './utils/Handler';
@@ -20,7 +20,7 @@ export * from './utils/ObjectPool';
 export * from './utils/ObjectUtils';
 export * from './utils/Query';
 export * from './utils/RegExpUtils';
-export * from './utils/Resize';
+export * from './utils/DomScreen';
 export * from './utils/StringUtils';
 export * from './utils/MathUtils';
 export * from './utils/Singleton';

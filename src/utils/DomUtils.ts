@@ -27,7 +27,7 @@ const scrollTop = (top: number, smooth = false): void => {
     }
 };
 
-export const BrowserUtils = {
+export const DomUtils = {
     rem2px,
     scrollTop,
     dpr2px,

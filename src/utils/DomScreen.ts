@@ -14,7 +14,7 @@ const getSafeY = (screenWidth: number, screenHeight: number) => {
  */
 const getWebSafeY = () => getSafeY(window.screen.width, window.screen.height);
 
-export const Resize = {
+export const DomScreen = {
     getSafeY,
     getWebSafeY,
 };
