@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 2.0.0 (2021-02-09)
+
+
+### ⚠ BREAKING CHANGES
+
+* 统一web命名dom
+
+### Features
+
+* 统一web命名dom ([d724c76](https://github.com/pawgame/game-library/commit/d724c76d79eb1350ff510996a335e6816a7f8107))
+
 ## 1.11.0 (2021-02-08)
 
 
