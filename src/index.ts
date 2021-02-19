@@ -27,3 +27,5 @@ export * from './utils/Singleton';
 export * from './utils/Signal';
 export * from './utils/CMDResManager';
 export * from './utils/HTTP';
+
+export * from './types';
