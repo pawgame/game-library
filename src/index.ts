@@ -26,3 +26,4 @@ export * from './utils/MathUtils';
 export * from './utils/Singleton';
 export * from './utils/Signal';
 export * from './utils/CMDResManager';
+export * from './utils/HTTP';
