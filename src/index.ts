@@ -1,9 +1,10 @@
-export * from './event/CoreEvent';
 export * from './event/Event';
 export * from './event/EventDefines';
 export * from './event/EventDispatcher';
 
 export * from './game/Notifier';
+export * from './game/GFacade';
+export * from './game/View';
 
 export * from './model/BaseDB';
 export * from './model/Chain';
