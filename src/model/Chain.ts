@@ -25,7 +25,7 @@ export class Chain<T> {
         return node as ChainNode<T>;
     }
 
-    private removeNode(node: ChainNode<T>) {
+    removeNode(node: ChainNode<T>) {
         if (!node) return;
         if (node.pre) {
             node.pre.next = node.next;
@@ -124,6 +124,26 @@ export class Chain<T> {
     /** 链表长度 */
     get count() {
         return this._count;
+    }
+
+    some(handler: (item: T) => boolean): boolean {
+        let inst = this._first;
+        if (!inst) return false;
+        let has = handler(inst.data);
+        inst = inst.next;
+        while (inst && !has) {
+            inst = inst.next;
+            has = handler(inst.data);
+        }
+        return has;
+    }
+
+    forEachNode(handler: (item: ChainNode<T>) => unknown) {
+        let inst = this._first;
+        while (inst) {
+            handler(inst);
+            inst = inst.next;
+        }
     }
 
     forEach(handler: (item: T) => unknown) {
